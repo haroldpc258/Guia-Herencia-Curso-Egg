@@ -54,7 +54,7 @@ public class Electrodomestico {
     private void comprobarConsumoEnergetico(Character letra) {
 
         letra = Character.toUpperCase(letra);
-        if (letra>=65 && letra<=70) {
+        if (letra>='A' && letra<'F') {
             consumoEnergetico = letra;
         } else {
             consumoEnergetico = 'F';
@@ -76,8 +76,8 @@ public class Electrodomestico {
     public void crearElectrodomestico(Scanner scanner) {
 
         System.out.println("\nCREANDO ELECTRODOMÉSTICO: " + this.getClass().getSimpleName().toUpperCase());
-        System.out.print("Ingrese el Precio: ");
-        precio = 1000 + scanner.nextDouble();
+
+        precio = 1000;
 
         System.out.print("Ingrese el Color: ");
         comprobarColor(scanner.next());

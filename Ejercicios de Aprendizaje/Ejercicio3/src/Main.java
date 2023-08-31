@@ -19,13 +19,23 @@ public class Main {
         }
 
         double precioTotal = 0;
+        double precioLavadoras = 0;
+        double precioTelevisores = 0;
+
         for (Electrodomestico e : electrodomesticos) {
             e.precioFinal();
-            System.out.println("El precio del electrodoméstico tipo " + e.getClass().getSimpleName()
-                    + " es: " + e.getPrecio());
+
+            if (e instanceof Lavadora)
+                precioLavadoras += e.getPrecio();
+
+            if (e instanceof Televisor)
+                precioTelevisores += e.getPrecio();
+
             precioTotal += e.getPrecio();
         }
 
+        System.out.println("El precio por las Lavadoras es: " + precioLavadoras);
+        System.out.println("El precio por los Televisores es: " + precioTelevisores);
         System.out.println("El precio total por los electrodomésticos es: " + precioTotal);
     }
 }
