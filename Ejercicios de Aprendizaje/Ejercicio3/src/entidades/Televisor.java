@@ -1,14 +1,11 @@
 package entidades;
 
-import java.util.Scanner;
-
 public class Televisor extends Electrodomestico{
 
     private double resolucion;
     private boolean TDT;
 
     public Televisor() {
-        crearTelevisor();
     }
 
     public Televisor(double precio, String color, Character consumoEnergetico, double peso, double resolucion, boolean TDT) {
@@ -31,32 +28,6 @@ public class Televisor extends Electrodomestico{
 
     public void setTDT(boolean TDT) {
         this.TDT = TDT;
-    }
-
-    public void crearTelevisor() {
-        Scanner scanner = new Scanner(System.in).useDelimiter("\n");
-
-        crearElectrodomestico(scanner);
-
-        System.out.print("Ingrese las pulgadas de Resolución: ");
-        resolucion = scanner.nextDouble();
-
-        System.out.print("Posee sintonizador TDT (s/n): ");
-        TDT = scanner.next().equalsIgnoreCase("s");
-
-        precioFinal();
-    }
-
-    @Override
-    public void precioFinal() {
-        super.precioFinal();
-
-        if (resolucion > 40) {
-            precio *= 1.30;
-        }
-        if (TDT) {
-            precio += 500;
-        }
     }
 
     @Override

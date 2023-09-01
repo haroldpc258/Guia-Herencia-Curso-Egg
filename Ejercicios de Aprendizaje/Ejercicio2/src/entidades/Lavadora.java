@@ -1,13 +1,10 @@
 package entidades;
 
-import java.util.Scanner;
-
 public class Lavadora extends Electrodomestico{
 
     private double carga;
 
     public Lavadora() {
-        crearLavadora();
     }
 
     public Lavadora(double precio, String color, Character consumoEnergetico, double peso, double carga) {
@@ -21,26 +18,6 @@ public class Lavadora extends Electrodomestico{
 
     public void setCarga(double carga) {
         this.carga = carga;
-    }
-
-    public void crearLavadora() {
-        Scanner scanner = new Scanner(System.in).useDelimiter("\n");
-
-        crearElectrodomestico(scanner);
-
-        System.out.print("Ingrese la Carga: ");
-        carga = scanner.nextDouble();
-
-        precioFinal();
-    }
-
-    @Override
-    public void precioFinal() {
-        super.precioFinal();
-
-        if (carga > 30) {
-            precio += 500;
-        }
     }
 
     @Override
