@@ -4,7 +4,7 @@ public class Barco {
 
     protected String matricula;
     protected double espora;
-    private int anioFabricacion;
+    protected int anioFabricacion;
 
     public Barco() {
     }
@@ -37,14 +37,5 @@ public class Barco {
 
     public void setAnioFabricacion(int anioFabricacion) {
         this.anioFabricacion = anioFabricacion;
-    }
-
-    @Override
-    public String toString() {
-        return "Barco{" +
-                "matricula='" + matricula + '\'' +
-                ", espora=" + espora +
-                ", anioFabricacion=" + anioFabricacion +
-                '}';
     }
 }

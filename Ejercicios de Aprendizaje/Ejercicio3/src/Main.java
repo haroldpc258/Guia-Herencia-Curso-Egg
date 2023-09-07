@@ -11,7 +11,6 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
-        ElectrodomesticoService es = new ElectrodomesticoService();
         TelevisorService ts = new TelevisorService();
         LavadoraService ls = new LavadoraService();
 

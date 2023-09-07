@@ -1,6 +1,5 @@
 package servicios.barcos;
 
-import entidades.barcos.Barco;
 import entidades.barcos.Velero;
 
 import java.util.Scanner;
