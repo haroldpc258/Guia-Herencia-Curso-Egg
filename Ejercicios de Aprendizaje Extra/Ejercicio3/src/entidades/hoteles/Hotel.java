@@ -62,11 +62,19 @@ public abstract class Hotel extends Alojamiento {
     }
 
     public static Comparator<Hotel> compararPorPrecio() {
+        return Comparator.comparing(Hotel::getPrecioHabitaciones).reversed();
+    }
+
+    /*public static Comparator<Hotel> compararPorPrecio() {
+        return (h1, h2) -> (int)(h2.getPrecioHabitaciones() - h1.getPrecioHabitaciones());
+    }*/
+
+    /*public static Comparator<Hotel> compararPorPrecio() {
         return new Comparator<Hotel>() {
             @Override
             public int compare(Hotel h1, Hotel h2) {
                 return (int)(h2.getPrecioHabitaciones() - h1.getPrecioHabitaciones());
             }
         };
-    }
+    }*/
 }

@@ -1,7 +1,5 @@
 package entidades;
 
-import java.util.Comparator;
-
 public abstract class Alojamiento {
 
     protected String nombre;

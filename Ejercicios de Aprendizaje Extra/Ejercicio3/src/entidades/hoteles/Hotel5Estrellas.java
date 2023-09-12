@@ -1,10 +1,10 @@
 package entidades.hoteles;
 
-public class Hotel5Estrellas extends Hotel4Estrellas{
+public final class Hotel5Estrellas extends Hotel4Estrellas{
 
-    protected int cantidadSalones;
-    protected int cantidadSuites;
-    protected int cantidadLimosinas;
+    private int cantidadSalones;
+    private int cantidadSuites;
+    private int cantidadLimosinas;
 
     public Hotel5Estrellas() {
     }

@@ -12,11 +12,26 @@ import java.util.stream.Collectors;
 public class AlojamientoService {
 
     public void mostrarAlojamientos(List<? extends Alojamiento> alojamientos) {
-        for (Alojamiento alojamiento : alojamientos) {
-            System.out.println(alojamiento);
-        }
+        alojamientos.forEach(System.out::println);
     }
 
+    //Utilizando Programación Funcional --> Operador de referencia de métodos, y genéricos
+    public <T extends Alojamiento> List<T> obtenerAlojamientosDeTipo(Class<T> tipo, List<Alojamiento> alojamientos) {
+        return alojamientos.stream()
+                .filter(tipo::isInstance)
+                .map(tipo::cast)
+                .collect(Collectors.toList());
+    }
+
+    //Utilizando Programación Funcional --> expresiones Lambda, y genéricos
+    /*public <T extends Alojamiento> List<T> obtenerAlojamientosDeTipo(Class<T> tipo, List<Alojamiento> alojamientos) {
+        return alojamientos.stream()
+                .filter(alojamiento -> tipo.isInstance(alojamiento))
+                .map(alojamiento -> tipo.cast(alojamiento))
+                .collect(Collectors.toList());
+    }*/
+
+    //Ejemplo Utilizando programación tradicional --> Paradigma Imperativo
     /*public List<Hotel> obtenerHoteles(List<Alojamiento> alojamientos) {
         List<Hotel> hoteles = new ArrayList<>();
 
@@ -28,7 +43,8 @@ public class AlojamientoService {
         return hoteles;
     }*/
 
-    public List<Hotel> obtenerHoteles(List<Alojamiento> alojamientos) {
+    //Utilizando Programación Funcional pero sin genéricos
+    /*public List<Hotel> obtenerHoteles(List<Alojamiento> alojamientos) {
         return alojamientos.stream()
                 .filter(alojamiento -> alojamiento instanceof Hotel)
                 .map(hotel -> (Hotel) hotel)
@@ -47,6 +63,6 @@ public class AlojamientoService {
                 .filter(alojamiento -> alojamiento instanceof Residencia)
                 .map(residencia -> (Residencia) residencia)
                 .collect(Collectors.toList());
-    }
+    }*/
 
 }

@@ -1,6 +1,7 @@
 import entidades.Alojamiento;
 import entidades.extrahoteleros.Camping;
 import entidades.extrahoteleros.Residencia;
+import entidades.hoteles.Hotel;
 import entidades.hoteles.Hotel4Estrellas;
 import entidades.hoteles.Hotel5Estrellas;
 import servicios.AlojamientoService;
@@ -8,6 +9,7 @@ import servicios.ExtrahoteleroService;
 import servicios.HotelService;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -21,8 +23,7 @@ public class Main {
         ExtrahoteleroService es = new ExtrahoteleroService();
 
         List<Alojamiento> alojamientos = new ArrayList<>();
-
-        agregarHotelesEjemplo(alojamientos);
+        agregarAlojamientoEjemplo(alojamientos);
         menu(scanner, alojamientos, as, hs, es);
     }
 
@@ -46,15 +47,15 @@ public class Main {
                 }
                 case 2 -> {
                     System.out.println("\nLISTA DE HOTELES POR PRECIO");
-                    as.mostrarAlojamientos(hs.ordenarHotelPorPrecio(as.obtenerHoteles(alojamientos)));
+                    as.mostrarAlojamientos(hs.ordenarHotelPorPrecio(as.obtenerAlojamientosDeTipo(Hotel.class, alojamientos)));
                 }
                 case 3 -> {
                     System.out.println("\nLISTA DE CAMPINGS CON RESTAURANTE");
-                    as.mostrarAlojamientos(es.campingsConRestaurante(as.obtenerCampings(alojamientos)));
+                    as.mostrarAlojamientos(es.campingsConRestaurante(as.obtenerAlojamientosDeTipo(Camping.class, alojamientos)));
                 }
                 case 4 -> {
                     System.out.println("\nLISTA DE RESIDENCIAS CON DESCUENTO");
-                    as.mostrarAlojamientos(es.residenciasConDescuento(as.obtenerResidencias(alojamientos)));
+                    as.mostrarAlojamientos(es.residenciasConDescuento(as.obtenerAlojamientosDeTipo(Residencia.class, alojamientos)));
                 }
                 case 0 -> { }
                 default -> {
@@ -66,7 +67,7 @@ public class Main {
         System.out.println("\nHasta Luego...");
     }
 
-    public static void agregarHotelesEjemplo(List<Alojamiento> alojamientos) {
+    public static void agregarAlojamientoEjemplo(List<Alojamiento> alojamientos) {
         Hotel4Estrellas hotel1 = new Hotel4Estrellas("Hotel Uno", "Dirección Uno", "Localidad Uno", "Gerente Uno", 100, 200, 10, Hotel4Estrellas.tipoGimnasio.A, "Restaurante Uno", 50);
         alojamientos.add(hotel1);
 
@@ -126,6 +127,5 @@ public class Main {
 
         Residencia residencia5 = new Residencia("Residencia Cinco", "Dirección Cinco", "Localidad Cinco", "Gerente Cinco", true, 8500.0, 32, true, true);
         alojamientos.add(residencia5);
-
     }
 }
